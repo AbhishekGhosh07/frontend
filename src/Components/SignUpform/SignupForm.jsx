@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import './SignupForm.css';
 import { FaUser, FaLock } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const SignupForm = () => {
+  let navigate = useNavigate();
   const [status, setStatus] = useState(null);
   const [data, setData] = useState({
     name: "",
     email: "",
     phone: "",
     password: ""
-
   })
 
   const handleSubmit = (event) => {
@@ -30,6 +31,7 @@ const SignupForm = () => {
         });
         console.log(response.data);
         setStatus(null);
+        navigate('/home');
       })
       .catch((err)=>{
         console.log('error-->' , JSON.stringify(err));

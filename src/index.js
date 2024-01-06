@@ -8,6 +8,7 @@ import SignupForm from './Components/SignUpform/SignupForm';
 import LoginForm from './Components/LoginForm/LoginForm';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home'
+import FlightDetails from './Components/FlightDetails/FlightDetails';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -19,8 +20,10 @@ root.render(
         <Route path="home" element={<Home/>}/>
         <Route path="signup" element={<SignupForm/>}/>
         <Route path="login" element={<LoginForm/>}/>
-          
+        <Route path="flightdetails" element={<FlightDetails/>}/>
       </Route>
+     
+
     </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,7 +1,9 @@
 import React , {useState} from 'react'
 import './Home.css'
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
   const [departureAirport, setDepartureAirport] = useState('');
   const [destinationAirport, setDestinationAirport] = useState('');
   const [flightDate, setFlightDate] = useState('');
@@ -11,6 +13,8 @@ const Home = () => {
     e.preventDefault();
     // Handle form submission logic here
     console.log('Form submitted:', { departureAirport, destinationAirport, flightDate, returnDate });
+    
+    navigate('/flightdetails');
   };
 
   return (
