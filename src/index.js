@@ -9,11 +9,18 @@ import LoginForm from './Components/LoginForm/LoginForm';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home'
 import FlightDetails from './Components/FlightDetails/FlightDetails';
+
+import { Provider } from 'react-redux';
+import { store } from './state/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    {/* <App /> */}
+  <React.StrictMode >
+    {/* <Provider store={store}>
+    <App />
+
+    </Provider> */}
     <BrowserRouter>
+    <Provider store={store}>
     <Routes>
       <Route path="/" element={<Header/>}>
         <Route index element={<Home/>}/>
@@ -22,9 +29,8 @@ root.render(
         <Route path="login" element={<LoginForm/>}/>
         <Route path="flightdetails" element={<FlightDetails/>}/>
       </Route>
-     
-
     </Routes>
+    </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -3,7 +3,13 @@ import './SignupForm.css';
 import { FaUser, FaLock } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../state';
+
 const SignupForm = () => {
+  const dispatch = useDispatch();
+  const actions = bindActionCreators(actionCreators,dispatch);
   let navigate = useNavigate();
   const [status, setStatus] = useState(null);
   const [data, setData] = useState({
@@ -31,6 +37,7 @@ const SignupForm = () => {
         });
         console.log(response.data);
         setStatus(null);
+        actions.loggedIn(false);
         navigate('/home');
       })
       .catch((err)=>{

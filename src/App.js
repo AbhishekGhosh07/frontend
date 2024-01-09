@@ -1,10 +1,13 @@
-import LoginForm from './Components/LoginForm/LoginForm';
-import SignupForm from './Components/SignUpform/SignupForm';
-
+import Navbar from "./Navbar";
+import Shop from "./Shop";
 function App() {
   return (
-    <div>
-      <SignupForm />
+    <div className="App">
+      <Navbar />
+      <div className="Container">
+      <Shop/>
+      </div>
+      
     </div>
   );
 }

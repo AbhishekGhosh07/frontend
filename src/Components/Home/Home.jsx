@@ -1,6 +1,9 @@
 import React , {useState} from 'react'
 import './Home.css'
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../state';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -8,16 +11,19 @@ const Home = () => {
   const [destinationAirport, setDestinationAirport] = useState('');
   const [flightDate, setFlightDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
-
+  const dispatch = useDispatch();
+  const actions = bindActionCreators(actionCreators,dispatch);
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
     console.log('Form submitted:', { departureAirport, destinationAirport, flightDate, returnDate });
-    
+    actions.departureCity(departureAirport);
+    actions.arrivalCity(destinationAirport);
     navigate('/flightdetails');
   };
 
-  return (
+  return (<>
+    <h1 style={{color : "white" , textAlign:"center"}}>The Best flight offers from anywhere, to everywhere </h1>
     <div style={{background: "transparent",border: "2px solid rgba(255,255,255, .2)",
     backdropFilter: "blur(30px)",
     boxShadow: "0 0 10px rgba(0,0,0, .2)",
@@ -85,7 +91,7 @@ const Home = () => {
         </button>
       </form>
     </div>
-  );
+    </>);
 }
 
 export default Home
