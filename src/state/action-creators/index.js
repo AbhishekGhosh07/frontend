@@ -42,3 +42,11 @@ export const loggedIn =(allow)=>{
         })
     }
 }
+export const storeName = (name)=>{
+    return (dispatch)=>{
+        dispatch({
+            type: 'addName',
+            payload : name
+        })
+    }
+}

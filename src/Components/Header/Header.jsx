@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 const Header = () => {
   const allowUser = useSelector(state=>state.permission);
+  const name = useSelector(state=>state.name);
   return (
     <>
     <nav style={{background: "transparent",border: "2px solid rgba(255,255,255, .2)",
@@ -20,7 +21,7 @@ const Header = () => {
         && <Link style={{color:"white"}} to="login">Login</Link>}
         {allowUser && <Link style={{color:"White"}} to="signup">SignUp</Link>}
         
-        
+        {!allowUser &&  <Link style={{color:"white"}} >Hi {name}</Link>}
         
     </nav>
     <Outlet/>

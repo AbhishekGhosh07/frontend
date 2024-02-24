@@ -38,6 +38,7 @@ const SignupForm = () => {
         console.log(response.data);
         setStatus(null);
         actions.loggedIn(false);
+        actions.storeName(data.name);
         navigate('/home');
       })
       .catch((err)=>{
